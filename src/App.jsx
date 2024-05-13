@@ -15,21 +15,42 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const App = () => {
   const dispatch = useDispatch();
-  const url = useSelector((state) => state.home.url);
-  console.log(url);
+  // const url = useSelector((state) => state.home.url);
+  // console.log(url);
 
-  const apiTesting = () => {
-    fetchDataFromApi("/movie/popular")
-      .then((res) => {
-        console.log(res);
-        dispatch(getApiConfigurations(res));
-      })
-      .catch((error) => console.log(error));
-  };
+  // const apiTesting = () => {
+  //   fetchDataFromApi("/movie/popular")
+  //     .then((res) => {
+  //       console.log(res);
+  //       dispatch(getApiConfigurations(res));
+  //     })
+  //     .catch((error) => console.log(error));
+  // };
 
   useEffect(() => {
-    apiTesting();
+    // apiTesting();
+    genresCall()
   }, []);
+
+
+  // Fetch genres for TV and movie for showing on homepage 
+  const genresCall = async () => {
+    let promises = [];
+    let endPoints = ["tv", "movie"];
+    let allGenres = {};
+
+    endPoints.forEach((url) => {
+      promises.push(fetchDataFromApi(`/genre/${url}/list`));
+    });
+
+    const data = await Promise.all(promises);
+    data.map(({ genres }) => {
+      return genres.map((item) => (allGenres[item.id] = item));
+    });
+
+    dispatch(getGeners(allGenres));
+  };
+
 
   return (
     <BrowserRouter>
