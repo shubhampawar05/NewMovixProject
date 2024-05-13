@@ -3,28 +3,30 @@ import ContentWrapper from '../../../components/contentWrapper/ContentWrapper'
 import SwitchTabs from '../../../components/switchTabs/SwitchTabs'
 import useFetch from './../../../hook/useFetch'
 import Carousel from '../../../components/carousel/Carousel'
-const Tranding = () => {
 
-  const [endpoint , setEndpoint] = useState('day')
 
-  const {data, loading} = useFetch(`trending/all/${endpoint}`)
+const Popular = () => {
+
+  const [endpoint , setEndpoint] = useState('movie')
+
+  const {data, loading} = useFetch(`${endpoint}/popular`)
   console.log('form tranding page'+ data);
 
     const onTabChange = (tab)=>{
-      setEndpoint(tab === "Day" ? "day":"week")
+setEndpoint(tab === 'Movies'  ? "movie" : "tv")
     }
   return (
     <div className='carouselSection'>
         <ContentWrapper  className='trandingContentWrapper'>
             <span className='carouselTitle'>
-                Tranding
+                What's Popular
             </span>
-            <SwitchTabs data={ ["day","Week"]} onTabChange={onTabChange}/>
+            <SwitchTabs data={ ["Movies","TV Shows"]} onTabChange={onTabChange}/>
            
         </ContentWrapper>
-        <Carousel data={data?.results} loading={loading}/>
+        <Carousel data={data?.results} endpoint={endpoint} loading={loading}/>
     </div>
   )
 }
 
-export default Tranding
+export default Popular;
