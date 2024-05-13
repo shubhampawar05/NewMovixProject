@@ -24,7 +24,7 @@ const HeroBanner = () => {
     setBackground(finalPath);
   }, [data]);
 
-  // input search value
+  // input search value set into state
   const searchQueryHandler = (event) => {
     if (query != "" && event.key === "Enter") {
       navigate(`/search/${query}`);
@@ -40,7 +40,7 @@ const HeroBanner = () => {
       {/* linear gradiante */}
       <div className="opacity-layer"></div>
 
-      
+
       <ContentWrapper>
         <div className="heroBannerContent">
           <span className="title">Welcome</span>

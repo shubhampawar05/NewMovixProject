@@ -1,0 +1,164 @@
+/* min-width 640 px it means iske baad apply hogi ye wali properys  */
+/* max-width 640 px it means 0 se 640 px tak apply hogi ye wali properys  */
+.Header {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  transition: all ease 0.5s;
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+}
+
+.contentWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  cursor: pointer;
+}
+.logo img {
+  height: 50px;
+}
+@media screen and (max-width: 425px) {
+  /* mobile phone ke liye  */
+  .logo img {
+    height: 35px;
+  }
+}
+.menuItems {
+  display: block;
+  list-style: none;
+  align-items: center;
+  display: flex;
+}
+
+@media screen and (max-width: 425px) {
+  /* mobile phone ke liye  */
+  .menuItems {
+    display: none;
+  }
+}
+
+.menuItems .menuItem {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  color: white;
+  font-weight: 500;
+  position: relative;
+}
+.mobileMenuItes {
+  display: none;
+}
+@media screen and (max-width: 425px) {
+  /*mobile phone ke liye  */
+  .mobileMenuItes {
+    display: block;
+    display: flex;
+    gap: 1rem;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}
+.mobileView {
+  background: var(--black3);
+}
+
+
+
+.mobileView .menuItems {
+  display: flex;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  background: var(--black3);
+  flex-direction: column;
+  width: 100%;
+  padding: 5px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  animation: mobileMenu 0.3s ease forwards;
+}
+
+.mobileView .menuItems .menuItem {
+  font-size: 20px;
+  width: 100%;
+  height: auto;
+  padding: 15px 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: mobileMenu 0.3s ease forwards;
+}
+
+
+.searchBar {
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  position: absolute;
+  top: 60px;
+  animation: mobileMenu 0.3s ease forwards;
+}
+.searchBar .searchInput {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  margin-top: 10px;
+  width: 100%;
+ 
+
+}
+.searchInput svg {
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.searchInput input {
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  outline: 0;
+  border: 0;
+  border-radius: 30px 0 0 30px;
+  padding: 0 15px;
+  font-size: 14px;
+}
+/* &.mobileView {
+    background: var(--black3);
+    .menuItems {
+        display: flex;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: var(--black3);
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        animation: mobileMenu 0.3s ease forwards;
+        .menuItem {
+            font-size: 20px;
+            width: 100%;
+            height: auto;
+            padding: 15px 20px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            &:last-child {
+                display: none;
+            }
+        }
+    }
+} */
