@@ -1,4 +1,15 @@
-/* .detailsBanner {
+
+@media screen and (max-width: 425px) {
+    .detailsBanner{
+        margin-bottom: 0;
+        padding-top: 120px;
+        min-height: 700px;
+    }
+    
+}
+
+
+.detailsBanner {
     width: 100%;
     background-color: var(--black);
     padding-top: 100px;
@@ -222,8 +233,17 @@
             }
         }
     }
-} */
-.detailsBanner {
+}
+
+@media screen and (max-width: 425px) {
+    /* mobile phone ke liye  */
+    .detailsBanner {
+        margin-bottom: 0;
+        padding-top: 120px;
+        min-height: 700px;
+    }
+  }
+/* .detailsBanner {
     width: 100%;
     background-color: var(--black);
     padding-top: 100px;
@@ -395,4 +415,4 @@
 .detailsBanner .detailsBannerSkeleton .right .row:nth-child(5) {
     width: 50%;
     margin-bottom: 50px;
-}
+} */
