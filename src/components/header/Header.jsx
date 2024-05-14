@@ -57,7 +57,7 @@ window.scrollTo(0,0);
   return (
     <header className={`Header ${mobileMenu ? "mobileView" : ""}`}>
       <ContentWrapper className="contentWrapper">
-        <div className="logo">
+        <div className="logo"onClick={()=>   navigate(`/`)}>
           <img src={logo} alt="" />
         </div>
         
