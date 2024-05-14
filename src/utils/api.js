@@ -15,9 +15,9 @@ const headers = {
 
 // this is a function for geting data for any url and return data for that specific url 
 
-export const fetchDataFromApi = async (url)=>{
+export const fetchDataFromApi = async (url,params)=>{
     try {
-        const { data } = await axios.get(BaseUrl+url, {headers})
+        const { data } = await axios.get(BaseUrl+url, {headers,params})
         return data;
     } catch (error) {
         console.log(error);
